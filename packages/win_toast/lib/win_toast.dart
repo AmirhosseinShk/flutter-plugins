@@ -41,6 +41,10 @@ class Toast {
   void dismiss() {
     _client._dismiss(id);
   }
+
+  void clear() {
+    _client.clear();
+  }
 }
 
 class Event {
@@ -187,7 +191,7 @@ class WinToast {
   }
 
   Future<void> _dismiss(int id) {
-    return _channel.invokeMethod('hide', id);
+    return _channel.invokeMethod('dismiss', id);
   }
 
   Future<void> bringWindowToFront() {
